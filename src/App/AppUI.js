@@ -5,18 +5,11 @@ import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButtom } from '../CreateTodoButtom';
 import { TodoContext } from '../TodoContext';
+import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
 
-function AppUI({
-  error,
-  loading,
-  totalTodos,
-  completedTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-}) {
+function AppUI() {
+  const {error, loading, searchedTodos, completeTodo, deleteTodo,openModal, setOpenModal} = React.useContext(TodoContext);
   return (
     <React.Fragment>
      <TodoCounter />
@@ -25,11 +18,7 @@ function AppUI({
      {/* Podemos acceder a nuestro contexto con el consumer */}
      <TodoContext.Consumer>
        {({
-         error,
-         loading,
-         searchedTodos,
-         completeTodo,
-         deleteTodo,
+
        }) => (
          <TodoList>
            {error && <p>Desespérate, hubo un error...</p>}
@@ -46,10 +35,15 @@ function AppUI({
              />
            ))}
          </TodoList>
+
        )}
      </TodoContext.Consumer>
-
-     <CreateTodoButtom />
+     {!!openModal && (
+       <Modal>
+         <TodoForm />
+       </Modal>
+     )}
+     <CreateTodoButtom setOpenModal={setOpenModal} openModal={openModal} />
    </React.Fragment>
   );
 }
