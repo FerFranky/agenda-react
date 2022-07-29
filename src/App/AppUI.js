@@ -6,17 +6,8 @@ import { TodoItem } from '../TodoItem';
 import { CreateTodoButtom } from '../CreateTodoButtom';
 import { TodoContext } from '../TodoContext';
 
-function AppUI({
-  error,
-  loading,
-  totalTodos,
-  completedTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-}) {
+function AppUI() {
+  const {error, loading, searchedTodos, completeTodo, deleteTodo,} = React.useContext(TodoContext);
   return (
     <React.Fragment>
      <TodoCounter />
@@ -25,11 +16,7 @@ function AppUI({
      {/* Podemos acceder a nuestro contexto con el consumer */}
      <TodoContext.Consumer>
        {({
-         error,
-         loading,
-         searchedTodos,
-         completeTodo,
-         deleteTodo,
+
        }) => (
          <TodoList>
            {error && <p>Desespérate, hubo un error...</p>}
