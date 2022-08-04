@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mi-app/static/css/main.ffac64a4.css",
+    "main.js": "/mi-app/static/js/main.fb110629.js",
+    "static/media/logo.svg": "/mi-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/mi-app/index.html",
+    "main.ffac64a4.css.map": "/mi-app/static/css/main.ffac64a4.css.map",
+    "main.fb110629.js.map": "/mi-app/static/js/main.fb110629.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffac64a4.css",
+    "static/js/main.fb110629.js"
+  ]
+}
